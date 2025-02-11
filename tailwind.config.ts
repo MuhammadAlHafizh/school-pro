@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import type { PluginAPI } from "tailwindcss/types/config";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -60,8 +61,9 @@ export default {
     },
   },
   plugins: [
-    require("tailwindcss-animate"),
-    ({ addUtilities }: PluginAPI) => {
+    tailwindcssAnimate,
+    (pluginApi: PluginAPI) => {
+      const { addUtilities } = pluginApi;
       const newUtilities = {
         ".scrollbar-hide": {
           /* IE and Edge */
